@@ -93,13 +93,14 @@ else:
 		
 # Python implementation to add numbers without any arthemetic operators
 def add(a, b):
-    
-    for i in range(1, b + 1):
-        a = a + 1
-    return a
-a = add(10, 32)
-print(a)
-
+    # Base case: if b is 0, return a
+    if b == 0:
+        return a
+    # Recursive case: add a and b using bitwise OR and carry over the carry bits using bitwise AND
+    return add(a ^ b , (a & b) << 1)
+a = int(input())
+b = int(input())
+print(add(a,b))
 
 
 
